@@ -11,9 +11,12 @@ function EachGrade(props) {
       <td>{studentName}</td>
       <td>{course}</td>
       <td>{studentGrade}</td>
+      <td>
+        <button type="button" className="btn btn-warning">Edit</button>
+        <button type="button" className="btn btn-danger ml-1" onClick={() => props.deleteEntry(grade.id)}>Delete</button>
+      </td>
     </tr>
   );
-
 }
 
 function GradesTable(props) {
@@ -24,18 +27,27 @@ function GradesTable(props) {
           <th scope="col">Student Name</th>
           <th scope="col">Course</th>
           <th scope="col">Grade</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-        {
-          props.grades.map(grade => {
+        { props.grades.length < 1
+          ? <tr>
+            <td colSpan="4">No Grades Recorded
+            </td>
+          </tr>
+          : props.grades.map(grade => {
             return (
               <EachGrade
                 key={grade.id}
                 grade={grade}
+                deleteEntry={props.deleteEntry}
               />
             );
-          })
+          }
+
+          )
+
         }
       </tbody>
     </table>
