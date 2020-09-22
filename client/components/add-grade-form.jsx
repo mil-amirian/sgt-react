@@ -10,6 +10,7 @@ class GradeForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
@@ -42,7 +43,14 @@ class GradeForm extends React.Component {
       course: '',
       grade: ''
     }));
+  }
 
+  handleReset() {
+    this.setState(state => ({
+      name: '',
+      course: '',
+      grade: ''
+    }));
   }
 
   render() {
@@ -87,7 +95,7 @@ class GradeForm extends React.Component {
         <div className="form-group row float-right">
           <div className="col">
             <button type="submit" className="btn btn-success">Add Record</button>
-            <button type="reset" value="reset" className="btn btn-outline-secondary ml-1">Cancel</button>
+            <button type="reset" className="btn btn-outline-secondary ml-1" onClick={this.handleReset}>Cancel</button>
           </div>
         </div>
       </form>
