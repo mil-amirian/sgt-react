@@ -18,7 +18,7 @@ function EachGrade(props) {
 
 function GradesTable(props) {
   return (
-    <table className="table table-striped">
+    <table className="col-8 table table-striped">
       <thead className="thead-dark">
         <tr>
           <th scope="col">Student Name</th>
