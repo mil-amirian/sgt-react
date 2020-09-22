@@ -7,8 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: [],
-      average: 0
+      grades: []
     };
     this.getAllGrades = this.getAllGrades.bind(this);
     this.calculateAverageGrade = this.calculateAverageGrade.bind(this);
@@ -25,13 +24,8 @@ class App extends React.Component {
         this.setState({
           grades: grade
         });
-        this.calculateAverageGrade();
       });
   }
-
-  // componentDidUpdate() {
-  //   this.calculateAverageGrade()
-  // }
 
   calculateAverageGrade() {
     let totalSumOfGrades = 0;
@@ -42,11 +36,8 @@ class App extends React.Component {
         totalSumOfGrades += this.state.grades[i].grade;
       }
       averageGrade = Math.floor(totalSumOfGrades / gradesLength);
-      this.setState(state => ({
-        average: averageGrade
-      }));
+      return averageGrade;
     }
-
   }
 
   render() {
@@ -55,7 +46,7 @@ class App extends React.Component {
         <div className='row'>
           <header className="col pt-3 d-flex justify-content-between align-items-center">
             <PageTitle text="Student Grade Table" />
-            <AverageGrade average={this.state.average}/>
+            <AverageGrade average={this.calculateAverageGrade()}/>
 
           </header>
         </div>
