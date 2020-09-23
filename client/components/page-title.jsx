@@ -2,7 +2,7 @@ import React from 'react';
 
 function PageTitle(props) {
   return (
-    <h1>{ props.text }</h1>
+    <h1 className="text-center">{ props.text }</h1>
   );
 }
 
