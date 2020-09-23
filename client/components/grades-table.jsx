@@ -12,7 +12,7 @@ function EachGrade(props) {
       <td>{course}</td>
       <td>{studentGrade}</td>
       <td>
-        <button type="button" className="btn btn-warning">Edit</button>
+        <button type="button" className="btn btn-warning" onClick={() => props.update(grade)}>Edit</button>
         <button type="button" className="btn btn-danger ml-1" onClick={() => props.deleteEntry(grade.id)}>Delete</button>
       </td>
     </tr>
@@ -21,7 +21,7 @@ function EachGrade(props) {
 
 function GradesTable(props) {
   return (
-    <table className="col-8 table table-striped">
+    <table className="col-lg-8 col-sm-12 table table-striped">
       <thead className="thead-dark">
         <tr>
           <th scope="col">Student Name</th>
@@ -42,6 +42,7 @@ function GradesTable(props) {
                 key={grade.id}
                 grade={grade}
                 deleteEntry={props.deleteEntry}
+                update={props.updateEntry}
               />
             );
           }
